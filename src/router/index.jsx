@@ -5,6 +5,7 @@ import Index from '../view/index/index'
 import Program from '../view/program/program'
 import File from '../view/file/file'
 import Contact from '../view/contact/contact'
+import Article from '../view/article/article'
 import AvatarImg from './../utils/image/avatar.jpg'
 import './index.less'
 
@@ -25,12 +26,12 @@ export default class MyIndex  extends Component{
                                 <Link to="/file"><p className="changeFile">归档</p></Link>
                             </li>
                             <li>
-                                <Link to="/contact"><p className="changeFile">联系我</p></Link>
+                                <Link to="/contact"><p className="changeFile">关于我</p></Link>
                             </li>
                         </ul>
                     </div>
                     <div className="navRight">
-                        <a href="#">
+                        <a href="http://192.144.213.47:8888/" target="_blank">
                             <img className="avatarImg" src={AvatarImg}/>
                         </a>
                     </div>
@@ -42,6 +43,7 @@ export default class MyIndex  extends Component{
                             <Route path='/program' component={Program}/>
                             <Route path='/file' component={File}/>
                             <Route path='/contact' component={Contact}/>
+                            <Route path='/article/:fileId' component={Article}/>
                         </Switch>
                     </Router>
                 </div>

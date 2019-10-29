@@ -7,7 +7,6 @@
         z-index: 9999;
         box-shadow: rgb(134, 134, 134) 0px 0px 25px;
         color: #ffffff;
-        transition: all 0.3s ease 0s;
         display: flex;
         justify-content:space-between;
         height: 66px;
@@ -40,6 +39,9 @@
                 border-image: initial;
                 margin-right: 25px;
             }
+            a{
+                color: inherit
+            }
         }
         .navRight{
             margin-right: 5%;
@@ -61,11 +63,32 @@
         height: 100px;
         background-color: rgba(0,0,0,0.86);
         padding-top:30px;
+        border-top: dashed white 1px;
         p{  
             color: rgba(255, 255, 255, 0.69);
             font-size: 12px;
             text-align: center;
             line-height: 2;
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    .routerWrap{
+        .navWrap{
+            .navLeft{
+                margin:0px auto;
+                ul {
+                    padding-inline-start: 20px;
+                    margin: 0px auto;
+                }
+                li {
+                    margin-right: 15px;
+                    font-size:14px;
+                }
+            }
+            .navRight{
+               display: none;
+            }
         }
     }
 }
