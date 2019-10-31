@@ -1,4 +1,4 @@
-const ONLINEBASEURL = 'http://192.144.213.47:8080'
+const ONLINEBASEURL = 'http://www.luckend.cn:8080'
 const LinkConstant = '/'
 
 const LOGIN = `${ONLINEBASEURL}/auth/login${LinkConstant}`

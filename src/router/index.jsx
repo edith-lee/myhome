@@ -31,7 +31,7 @@ export default class MyIndex  extends Component{
                         </ul>
                     </div>
                     <div className="navRight">
-                        <a href="http://192.144.213.47:8888/" target="_blank">
+                        <a href="http://www.luckend.cn:8888/" target="_blank">
                             <img className="avatarImg" src={AvatarImg}/>
                         </a>
                     </div>
