@@ -1,94 +1,94 @@
-.routerWrap{
-    .navWrap{
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        z-index: 9999;
-        box-shadow: rgb(134, 134, 134) 0px 0px 25px;
-        color: #ffffff;
-        display: flex;
-        justify-content:space-between;
+.routerWrap {
+  .navWrap {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: rgb(134, 134, 134) 0px 0px 25px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    height: 66px;
+    background-color: rgba(0, 0, 0, 0.86);
+    .navLeft {
+      margin-left: 5%;
+      ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        position: relative;
+        margin: 0px auto;
+      }
+      li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        display: inline-block;
         height: 66px;
-        background-color: rgba(0,0,0,0.86);
-        .navLeft{
-            margin-left: 5%;
-            ul {
-                display: block;
-                list-style-type: disc;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-                padding-inline-start: 40px;
-                position: relative;
-                margin: 0px auto;
-            }
-            li {
-                display: list-item;
-                text-align: -webkit-match-parent;
-                display: inline-block;
-                height: 66px;
-                line-height: 66px;
-                font-size: 16px;
-                position: relative;
-                cursor: pointer;
-                border-width: 0px;
-                border-style: initial;
-                border-color: initial;
-                border-image: initial;
-                margin-right: 25px;
-            }
-            a{
-                color: inherit
-            }
-        }
-        .navRight{
-            margin-right: 5%;
-            height: 100%;
-            .avatarImg{
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
-                margin-top:(66px - 50px)/2;
-            }
-        }
+        line-height: 66px;
+        font-size: 16px;
+        position: relative;
+        cursor: pointer;
+        border-width: 0px;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+        margin-right: 25px;
+      }
+      a {
+        color: inherit;
+      }
     }
-    .content{
-        padding-top: 66px;
-        min-height: calc(100vh - 100px);
+    .navRight {
+      margin-right: 5%;
+      height: 100%;
+      .avatarImg {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-top: (66px - 50px)/2;
+      }
     }
-    .footer{
-        width: 100%;
-        height: 100px;
-        background-color: rgba(0,0,0,0.86);
-        padding-top:30px;
-        border-top: dashed white 1px;
-        p{  
-            color: rgba(255, 255, 255, 0.69);
-            font-size: 12px;
-            text-align: center;
-            line-height: 2;
-        }
+  }
+  .content {
+    padding-top: 66px;
+    min-height: calc(100vh - 100px);
+  }
+  .footer {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.86);
+    padding-top: 30px;
+    border-top: dashed white 1px;
+    p {
+      color: rgba(255, 255, 255, 0.69);
+      font-size: 12px;
+      text-align: center;
+      line-height: 2;
     }
+  }
 }
-@media screen and (max-width: 600px){
-    .routerWrap{
-        .navWrap{
-            .navLeft{
-                margin:0px auto;
-                ul {
-                    padding-inline-start: 20px;
-                    margin: 0px auto;
-                }
-                li {
-                    margin-right: 15px;
-                    font-size:14px;
-                }
-            }
-            .navRight{
-               display: none;
-            }
+@media screen and (max-width: 600px) {
+  .routerWrap {
+    .navWrap {
+      .navLeft {
+        margin: 0px auto;
+        ul {
+          padding-inline-start: 20px;
+          margin: 0px auto;
         }
+        li {
+          margin-right: 15px;
+          font-size: 14px;
+        }
+      }
+      .navRight {
+        display: none;
+      }
     }
+  }
 }
