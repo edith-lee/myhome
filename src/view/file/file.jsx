@@ -92,6 +92,7 @@ export default class File extends Component {
       let month = item.time.slice(0, 7);
       months.push(month);
     });
+    months = Array.from(new Set(months))
     return months.map(item => {
       return (
         <Panel header={item} key={item}>

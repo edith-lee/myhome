@@ -25,10 +25,7 @@ export default class Index extends Component {
       currentPage: page
     });
   };
-  componentDidMount = () => {
-    this.getArticleTotal();
-    this.getArticleList(1);
-    this.getTopFile();
+  componentWillMont =()=>{
     marked.setOptions({
       renderer: new marked.Renderer(),
       gfm: true,
@@ -42,6 +39,12 @@ export default class Index extends Component {
         return hljs.highlightAuto(code).value;
       }
     });
+  } 
+  componentDidMount = () => {
+    this.getArticleTotal();
+    this.getArticleList(1);
+    this.getTopFile();
+    
   };
   getTopFile = () => {
     this.setState({ loading: true });
