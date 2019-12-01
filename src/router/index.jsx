@@ -57,7 +57,7 @@ export default class MyIndex extends Component {
         </div>
         <div className="footer">
           <p>
-            Copyright © 2014-2019 Edith. All Rights Reserved.
+            Copyright © 2019 Edith. All Rights Reserved.
             <br />
             Powered by react+nodejs+mysql
           </p>

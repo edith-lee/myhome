@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Tabs, Collapse, Pagination, Modal } from "antd";
+import { Tabs, Collapse, Pagination, Modal, message } from "antd";
 import { Link } from "react-router-dom";
-import p1 from "../../utils/image/photo/1.jpg";
-import p2 from "../../utils/image/photo/2.jpg";
-import p3 from "../../utils/image/photo/3.jpg";
-import p4 from "../../utils/image/photo/4.jpg";
-import p5 from "../../utils/image/photo/5.jpg";
+import { HttpPost } from "../../server/post";
+import { HttpGet } from "../../server/get";
+import {
+  GET_ARTICLE_NAME,
+  GET_ALL_PHOTO,
+  GET_PHOTO_TOTAL
+} from "../../constants/constants";
 import "./file.less";
 
 const { TabPane } = Tabs;
@@ -13,123 +15,129 @@ const { Panel } = Collapse;
 export default class File extends Component {
   state = {
     total: 5,
-    currentPage: 3,
+    currentPage: 1,
     paginationHidden: false,
     showPhotoModal: false,
-    description: true
+    description: true,
+    articles: [],
+    photoList: [],
+    currentPhoto: {}
   };
   componentDidMount = () => {
-    if (this.state.total / 50 > 1) {
-      this.setState({
-        paginationHidden: false
-      });
-    }
+    this.getArticles();
+    this.getPhotoTotal();
+    this.getPhotoList(1);
   };
-  callback = key => {
-    console.log(key);
+  getPhotoTotal = () => {
+    HttpGet(GET_PHOTO_TOTAL)
+      .then(res => {
+        if (res.data) {
+          this.setState({
+            total: res.data.data[0].total
+          });
+        }
+      })
+      .catch(err => {
+        message.error("NetWork error,");
+      });
+  };
+  getPhotoList = page => {
+    HttpPost(GET_ALL_PHOTO, { page: page })
+      .then(res => {
+        if (res.data) {
+          this.setState({
+            photoList: res.data.data
+          });
+        }
+      })
+      .catch(err => {
+        message.error("NetWork error,");
+      });
+  };
+  getArticles = () => {
+    HttpGet(GET_ARTICLE_NAME)
+      .then(res => {
+        if (res.data) {
+          this.setState({
+            articles: res.data
+          });
+        }
+      })
+      .catch(err => {
+        message.error("NetWork error,");
+      });
   };
   onChangePage = page => {
-    console.log(page);
     this.setState({
       currentPage: page
     });
+    this.getPhotoList(page);
   };
-  showPhoto = index => {
-    console.log(index);
+  showPhoto = item => {
     this.setState({
-      showPhotoModal: true
+      showPhotoModal: true,
+      currentPhoto: item
     });
   };
   closePhotoModal = () => {
     this.setState({
+      currentPhoto: {},
       showPhotoModal: false
+    });
+  };
+  renderFileList = () => {
+    let articles = this.state.articles;
+    let months = [];
+    articles.map(item => {
+      let month = item.time.slice(0, 7);
+      months.push(month);
+    });
+    return months.map(item => {
+      return (
+        <Panel header={item} key={item}>
+          {articles.map(i => {
+            if (i.time.slice(0, 7) === item) {
+              return (
+                <div className="articleLink" key={i.fid}>
+                  <Link to={`/article/${i.fid}`} className="link">
+                    <p>{i.title}</p>
+                  </Link>
+                </div>
+              );
+            }
+          })}
+        </Panel>
+      );
     });
   };
   render() {
     return (
       <div className="fileWrap">
         <Tabs defaultActiveKey="1" onChange={this.callback}>
-          <TabPane tab="技术文章" key="1">
-            <Collapse accordion>
-              <Panel header="2019-10" key="1">
-                <div className="articleLink">
-                  <Link to="/article/3" className="link">
-                    <p>文章标题啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-                  </Link>
-                  <div>#react#js</div>
-                </div>
-                <div className="articleLink">
-                  <Link to="/article/4" className="link">
-                    <p>文章标题啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-                  </Link>
-                  <div>#react</div>
-                </div>
-              </Panel>
-              <Panel header="2019-09" key="2">
-                <p>list</p>
-              </Panel>
-              <Panel header="2019-08" key="3">
-                <p>list</p>
-              </Panel>
-            </Collapse>
-          </TabPane>
-          <TabPane tab="生活随笔" key="2">
-            <Collapse accordion>
-              <Panel header="2019-10" key="1">
-                <p>list</p>
-              </Panel>
-              <Panel header="2019-09" key="2">
-                <p>list</p>
-              </Panel>
-              <Panel header="2019-08" key="3">
-                <p>list</p>
-              </Panel>
-            </Collapse>
+          <TabPane tab="文章" key="1">
+            <Collapse accordion>{this.renderFileList()}</Collapse>
           </TabPane>
           <TabPane tab="相册" key="3">
             <div className="photoWrap">
-              <img
-                src={p1}
-                height={"100px"}
-                alt=""
-                onClick={() => this.showPhoto(1)}
-              />
-              <img
-                src={p2}
-                height={"100px"}
-                alt=""
-                onClick={() => this.showPhoto(2)}
-              />
-              <img
-                src={p3}
-                height={"100px"}
-                alt=""
-                onClick={() => this.showPhoto(3)}
-              />
-              <img
-                src={p4}
-                height={"100px"}
-                alt=""
-                onClick={() => this.showPhoto(4)}
-              />
-              <img
-                src={p5}
-                height={"100px"}
-                alt=""
-                onClick={() => this.showPhoto(5)}
-              />
+              {this.state.photoList.map(item => {
+                return (
+                  <img
+                    key={item.id}
+                    src={item.url}
+                    alt=""
+                    onClick={() => this.showPhoto(item)}
+                  />
+                );
+              })}
             </div>
-            {this.state.paginationHidden ? (
-              ""
-            ) : (
-              <Pagination
-                small
-                current={this.state.currentPage}
-                pageSize={50}
-                onChange={this.onChangePage}
-                total={this.state.total}
-              />
-            )}
+            <Pagination
+              small
+              hideOnSinglePage={true}
+              current={this.state.currentPage}
+              pageSize={30}
+              onChange={this.onChangePage}
+              total={this.state.total}
+            />
           </TabPane>
         </Tabs>
 
@@ -137,9 +145,16 @@ export default class File extends Component {
           className="photoModal"
           visible={this.state.showPhotoModal}
           onCancel={this.closePhotoModal}
-          footer={this.state.description ? <p>description</p> : null}
+          footer={
+            <div>
+              <p>{this.state.currentPhoto.time}</p>
+              {this.state.currentPhoto.description ? (
+                <p>{this.state.currentPhoto.description}</p>
+              ) : null}
+            </div>
+          }
         >
-          <img src={p1} alt="" />
+          <img src={this.state.currentPhoto.url} alt="" />
         </Modal>
       </div>
     );

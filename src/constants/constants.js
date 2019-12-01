@@ -1,10 +1,21 @@
-const ONLINEBASEURL = 'http://www.luckend.cn:8080'
-const LinkConstant = '/'
+const ONLINEBASEURL = 'http://www.luckend.cn:9999/api'
+//const ONLINEBASEURL = 'http://localhost:9999/api'
 
-const LOGIN = `${ONLINEBASEURL}/auth/login${LinkConstant}`
-const LOGIN_OUT = `${ONLINEBASEURL}/auth/logout${LinkConstant}`
-
+const GET_ARTICLE_TOTAL = `${ONLINEBASEURL}/getArticleTotal`
+const GET_ARTICLE_LIST = `${ONLINEBASEURL}/getArticleList`
+const GET_ONE_FILE = `${ONLINEBASEURL}/getOneFile`
+const GET_TOP_FILE = `${ONLINEBASEURL}/getTopFile`
+const GET_ARTICLE_NAME = `${ONLINEBASEURL}/getArticleName`
+const GET_ALL_PHOTO = `${ONLINEBASEURL}/getPhotoList`
+const GET_PHOTO_TOTAL = `${ONLINEBASEURL}/getPhotoTotal`
+const GET_ALL_PROGRAM = `${ONLINEBASEURL}/getProgramList`
 module.exports = {
-    LOGIN: LOGIN,
-    LOGIN_OUT: LOGIN_OUT,
+    GET_ONE_FILE,GET_ONE_FILE,
+    GET_ARTICLE_TOTAL:GET_ARTICLE_TOTAL,
+    GET_ARTICLE_LIST:GET_ARTICLE_LIST,
+    GET_TOP_FILE:GET_TOP_FILE,
+    GET_ARTICLE_NAME:GET_ARTICLE_NAME,
+    GET_ALL_PHOTO:GET_ALL_PHOTO,
+    GET_PHOTO_TOTAL:GET_PHOTO_TOTAL,
+    GET_ALL_PROGRAM:GET_ALL_PROGRAM,
 }
