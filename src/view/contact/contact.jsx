@@ -19,14 +19,24 @@ export default class Contact extends Component {
           <div className="cardBack">
             <p>wechat</p>
             <img src={Wechat} alt="" />
-            <a href='mailto:Edith_Luckend@163.com' target='_blank' style={{color:'#fff'}}>Email：Edith_Luckend@163.com</a>
-            <p className="Github">
-              <span>Github：</span>
-              <a href="https://github.com/edith-lee" target="_blank">
-                {" "}
-                https://github.com/edith-lee
-              </a>
-            </p>
+            <div>
+              <p className="Github">
+                <span>Email：</span>
+                <a href="mailto:Edith_Luckend@163.com" target="_blank">
+                  {" "}
+                  Edith_Luckend@163.com
+                </a>
+              </p>
+            </div>
+            <div>
+              <p className="Github">
+                <span>Github：</span>
+                <a href="https://github.com/edith-lee" target="_blank">
+                  {" "}
+                  https://github.com/edith-lee
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
