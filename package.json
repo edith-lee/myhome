@@ -58,5 +58,10 @@
     "babel-plugin-import": "^1.7.0",
     "babel-polyfill": "^6.26.0",
     "react-app-rewired": "^1.5.2"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "android 4",
+    "opera 12"
+  ]
 }
