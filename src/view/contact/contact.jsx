@@ -14,7 +14,7 @@ export default class Contact extends Component {
             <p>1996.04</p>
             <p>陕西 · 西安</p>
             <p>一枚前端程序媛</p>
-            <p>太原理工大学 软件工程本科</p>
+            <p>太原理工大学 软件工程</p>
           </div>
           <div className="cardBack">
             <p>wechat</p>

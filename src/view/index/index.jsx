@@ -24,6 +24,7 @@ export default class Index extends Component {
     this.setState({
       currentPage: page
     });
+    this.getArticleList(page)
   };
   componentWillMont =()=>{
     marked.setOptions({
