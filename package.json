@@ -19,7 +19,7 @@
     "es6-symbol": "^3.1.1",
     "fetch-detector": "^1.0.1",
     "fetch-ie8": "^1.5.0",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^9.17.1",
     "immutability-helper": "^2.7.1",
     "marked": "^0.7.0",
     "prop-types": "^15.6.1",
@@ -58,5 +58,10 @@
     "babel-plugin-import": "^1.7.0",
     "babel-polyfill": "^6.26.0",
     "react-app-rewired": "^1.5.2"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "android 4",
+    "opera 12"
+  ]
 }

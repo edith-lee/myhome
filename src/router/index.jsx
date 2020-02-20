@@ -57,7 +57,11 @@ export default class MyIndex extends Component {
         </div>
         <div className="footer">
           <p>
+<<<<<<< HEAD
             {`Copyright © 2019-${moment().format('YYYY')} Edith. All Rights Reserved.`}
+=======
+            Copyright © 2019-{moment().format('YYYY')} Edith. All Rights Reserved.
+>>>>>>> fa067e9d67f9aaa1f182309e8526765da1c63f40
             <br />
             Powered by react+nodejs+mysql
             <br />

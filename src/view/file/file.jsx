@@ -101,7 +101,7 @@ export default class File extends Component {
               return (
                 <div className="articleLink" key={i.fid}>
                   <Link to={`/article/${i.fid}`} className="link">
-                    <p>{i.title}</p>
+                    <div className='title'>{i.title}</div> <div className='time'>{i.time}</div>
                   </Link>
                 </div>
               );
