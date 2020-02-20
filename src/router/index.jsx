@@ -8,7 +8,7 @@ import Contact from "../view/contact/contact";
 import Article from "../view/article/article";
 import AvatarImg from "./../utils/image/avatar.jpg";
 import "./index.less";
-
+import moment from 'moment'
 export default class MyIndex extends Component {
   render() {
     return (
@@ -57,9 +57,11 @@ export default class MyIndex extends Component {
         </div>
         <div className="footer">
           <p>
-            Copyright © 2019 Edith. All Rights Reserved.
+            {`Copyright © 2019-${moment().format('YYYY')} Edith. All Rights Reserved.`}
             <br />
             Powered by react+nodejs+mysql
+            <br />
+            <a href="http://www.beian.miit.gov.cn/" target="_blank">陕ICP备19022438号-1</a> 
           </p>
         </div>
       </div>
