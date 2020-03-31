@@ -21,6 +21,7 @@ export default class Index extends Component {
     loading: false
   };
   onChangePage = page => {
+    document.documentElement.scrollTop = 0;
     this.setState({
       currentPage: page
     });
@@ -71,7 +72,7 @@ export default class Index extends Component {
       });
   };
   getArticleTotal = () => {
-    this.setState({ loading: true });
+    this.setState({ loading: true,articleList:[] });
     HttpGet(GET_ARTICLE_TOTAL)
       .then(res => {
         if (res.data) {
