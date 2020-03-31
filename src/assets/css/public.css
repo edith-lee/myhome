@@ -22,9 +22,9 @@ body{
   background-position: 0 0, 25px 25px;
   background-size: 50px 50px;
 }
-ul,li{
+/* ul,li{
   list-style:none;
-}
+} */
 img{
   border:none;
   display: block;
