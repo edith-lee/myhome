@@ -12,6 +12,7 @@ class Article extends Component {
     file:{}
   }
   componentDidMount = () => {
+    document.documentElement.scrollTop = 0;
     HttpPost(GET_ONE_FILE,{fid:this.props.match.params.fileId}).then(res=>{
       this.setState({
         file:res.data.data[0],
